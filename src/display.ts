@@ -18,10 +18,6 @@ class Display {
     this.update = this.update.bind(this);
   }
 
-  public clear() {
-    console.clear();
-  }
-
   public addInterrupt(interrupt: string) {
     this.interrupts.push(interrupt);
     this.update();
@@ -40,6 +36,10 @@ class Display {
   public setMessage(message?: string): void {
     this.message = message;
     this.update();
+  }
+
+  private clear() {
+    console.clear();
   }
 
   private update() {

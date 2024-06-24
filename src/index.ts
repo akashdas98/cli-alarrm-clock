@@ -1,7 +1,7 @@
 import AlarmClock from "./AlarmClock";
 import Menu from "./Menu";
 import { format, parse } from "date-fns";
-import userInput from "./UserInput";
+import userInput from "./userInput";
 import { isOfFormat } from "./utils";
 import display from "./display";
 

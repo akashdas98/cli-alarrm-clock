@@ -23,7 +23,7 @@ class UserInput {
       output: process.stdout,
     });
 
-    this.rl.on("line", this.handleInput);
+    this.rl.on("line", (input) => this.handleInput(input));
   }
 
   private handleInput(input: string) {
@@ -55,15 +55,15 @@ class UserInput {
     return new Promise<string>((resolve) => {
       this.mainResolve = resolve;
       this.isMainActive = true;
-      this.rl?.resume();
     });
   }
 
   public getInterruptInput(): Promise<string> {
-    this.rl?.pause();
+    if (!this.rl) {
+      this.createInterface();
+    }
     return new Promise<string>((resolve) => {
       this.interruptStack.push({ resolve });
-      this.rl?.resume();
     });
   }
 }

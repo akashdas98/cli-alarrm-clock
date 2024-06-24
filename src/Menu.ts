@@ -1,4 +1,4 @@
-import userInput from "./UserInput";
+import userInput from "./userInput";
 import display from "./display";
 
 export interface MenuOption {
